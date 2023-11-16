@@ -18,13 +18,13 @@ static void
 
         switch(scene_manager_get_scene_state(app->scene_manager, SubRemSceneFwWarning)) {
         case SceneFwWarningStateAttention:
-            if(result == GuiButtonTypeRight) {
+            if(result == GuiButtonTypeLeft) {
                 event = SubRemCustomEventSceneFwWarningNext;
             }
             break;
 
         case SceneFwWarningStateAccept:
-            if(result == GuiButtonTypeRight) {
+            if(result == GuiButtonTypeLeft) {
                 event = SubRemCustomEventSceneFwWarningContinue;
             }
 
@@ -45,9 +45,9 @@ static void
     switch(state) {
     case SceneFwWarningStateAttention:
         widget_add_button_element(
-            widget, GuiButtonTypeLeft, "Exit", subrem_scene_fw_warning_widget_callback, app);
+            widget, GuiButtonTypeRight, "Exit", subrem_scene_fw_warning_widget_callback, app);
         widget_add_button_element(
-            widget, GuiButtonTypeRight, "Continue", subrem_scene_fw_warning_widget_callback, app);
+            widget, GuiButtonTypeLeft, "Continue", subrem_scene_fw_warning_widget_callback, app);
         widget_add_string_element(
             widget, 64, 12, AlignCenter, AlignBottom, FontPrimary, "Not official FW");
         widget_add_string_multiline_element(
@@ -62,9 +62,9 @@ static void
 
     case SceneFwWarningStateAccept:
         widget_add_button_element(
-            widget, GuiButtonTypeLeft, "Exit", subrem_scene_fw_warning_widget_callback, app);
+            widget, GuiButtonTypeRight, "Exit", subrem_scene_fw_warning_widget_callback, app);
         widget_add_button_element(
-            widget, GuiButtonTypeRight, "Accept", subrem_scene_fw_warning_widget_callback, app);
+            widget, GuiButtonTypeLeft, "Accept", subrem_scene_fw_warning_widget_callback, app);
         widget_add_string_element(
             widget, 64, 12, AlignCenter, AlignBottom, FontPrimary, "Not official FW");
         widget_add_string_multiline_element(
