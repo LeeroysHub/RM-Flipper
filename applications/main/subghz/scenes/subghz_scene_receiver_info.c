@@ -202,7 +202,7 @@ bool subghz_scene_receiver_info_on_event(void* context, SceneManagerEvent event)
         }
         switch(subghz->state_notifications) {
         case SubGhzNotificationStateTx:
-            notification_message(subghz->notifications, &sequence_blink_magenta_10);
+            notification_message(subghz->notifications, &sequence_blink_red_10);
             break;
         case SubGhzNotificationStateRx:
             if(subghz->last_settings->gps_baudrate != 0) {
