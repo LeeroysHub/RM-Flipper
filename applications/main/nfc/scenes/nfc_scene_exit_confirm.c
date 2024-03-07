@@ -10,8 +10,8 @@ void nfc_scene_exit_confirm_on_enter(void* context) {
     NfcApp* nfc = context;
     DialogEx* dialog_ex = nfc->dialog_ex;
 
-    dialog_ex_set_left_button_text(dialog_ex, "Exit");
-    dialog_ex_set_right_button_text(dialog_ex, "Stay");
+    dialog_ex_set_right_button_text(dialog_ex, "Exit");
+    dialog_ex_set_left_button_text(dialog_ex, "Stay");
     dialog_ex_set_header(dialog_ex, "Exit to NFC Menu?", 64, 0, AlignCenter, AlignTop);
     dialog_ex_set_text(dialog_ex, "All unsaved data will be lost", 64, 12, AlignCenter, AlignTop);
     dialog_ex_set_context(dialog_ex, nfc);
@@ -25,9 +25,9 @@ bool nfc_scene_exit_confirm_on_event(void* context, SceneManagerEvent event) {
     bool consumed = false;
 
     if(event.type == SceneManagerEventTypeCustom) {
-        if(event.event == DialogExResultRight) {
+        if(event.event == DialogExResultLeft) {
             consumed = scene_manager_previous_scene(nfc->scene_manager);
-        } else if(event.event == DialogExResultLeft) {
+        } else if(event.event == DialogExResultRight) {
             if(scene_manager_has_previous_scene(nfc->scene_manager, NfcSceneSelectProtocol)) {
                 consumed = scene_manager_search_and_switch_to_previous_scene(
                     nfc->scene_manager, NfcSceneSelectProtocol);
