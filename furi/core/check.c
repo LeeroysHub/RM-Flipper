@@ -170,7 +170,7 @@ FURI_NORETURN void __furi_crash_implementation() {
             ptr = (uint32_t) "Check serial logs";
         }
         furi_hal_rtc_set_fault_data(ptr);
-        furi_log_puts("\r\nRebooting Flipper Zero.\r\n");
+        furi_log_puts("\r\nRebooting Leeroy's Flipper Zero.\r\n");
         furi_log_puts("\033[0m\r\n");
         furi_hal_power_reset();
     }
